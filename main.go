@@ -2,11 +2,12 @@ package main
 
 import (
 	"os"
+	"strconv"
 	"strings"
 )
 
 func main() {
-	one()
+	six()
 }
 
 func check(err error) {
@@ -21,4 +22,17 @@ func toLineArray(path string) ([]string, error) {
 		return nil, err
 	}
 	return strings.Split(string(dat), "\n"), nil
+}
+
+func toIntArray(s string) []int {
+	var res []int
+
+	for _, v := range strings.Split(s, " ") {
+		i, err := strconv.Atoi(v)
+		if err == nil {
+			res = append(res, i)
+		}
+	}
+
+	return res
 }
