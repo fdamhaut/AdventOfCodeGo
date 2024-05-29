@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	six()
+	eleven()
 }
 
 func check(err error) {
