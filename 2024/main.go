@@ -7,9 +7,10 @@ import (
 )
 
 func main() {
-	var funs = []func(){one}
-	i, _ := strconv.Atoi(os.Args[1])
-	funs[i]()
+	funs := []func(){one}
+	i, err := strconv.Atoi(os.Args[1])
+	check(err)
+	funs[i-1]()
 }
 
 func check(err error) {
@@ -18,12 +19,10 @@ func check(err error) {
 	}
 }
 
-func toLineArray(path string) ([]string, error) {
+func toLineArray(path string) []string {
 	dat, err := os.ReadFile(path)
-	if err != nil {
-		return nil, err
-	}
-	return strings.Split(string(dat), "\n"), nil
+	check(err)
+	return strings.Split(string(dat), "\n")
 }
 
 func toIntArray(s string) []int {
@@ -36,5 +35,14 @@ func toIntArray(s string) []int {
 		}
 	}
 
+	return res
+}
+
+func toIntMatrix(path string) [][]int {
+	lineArray := toLineArray(path)
+	var res [][]int = make([][]int, len(lineArray))
+	for i, s := range lineArray {
+		res[i] = toIntArray(s)
+	}
 	return res
 }
