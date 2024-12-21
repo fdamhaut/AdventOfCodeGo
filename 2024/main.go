@@ -7,7 +7,9 @@ import (
 )
 
 func main() {
-	eleven()
+	var funs = []func(){one}
+	i, _ := strconv.Atoi(os.Args[1])
+	funs[i]()
 }
 
 func check(err error) {
