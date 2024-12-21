@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	funs := []func(){one}
+	funs := []func(){one, two, three, four, five, six, seven, eight, nine, ten, eleven}
 	i, err := strconv.Atoi(os.Args[1])
 	check(err)
 	funs[i-1]()
