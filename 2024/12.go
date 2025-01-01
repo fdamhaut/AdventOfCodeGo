@@ -61,17 +61,6 @@ func twelveSolve(carte []string) (int, int) {
 	return a, b
 }
 
-func twelveHas3(i0 int, i1 int, i2 int, i3 int) bool {
-	if i0 == i1 && i0 == i2 && i0 == i3 {
-		return false
-	} else if i0 == i1 && (i0 == i2 || i0 == i3) {
-		return true
-	} else if i0 == i2 && i0 == i3 {
-		return true
-	}
-	return i1 == i2 && i1 == i3
-}
-
 func twelveMerge(region map[int]int, perim map[int]int, area map[int]int, side map[int]int, r1 int, r2 int) {
 	for k, v := range region {
 		if v == r2 {
